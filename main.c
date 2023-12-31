@@ -1,4 +1,3 @@
-
 #include "isingModel.h"
 
 #define NROW 15
