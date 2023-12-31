@@ -86,3 +86,10 @@ int E(int *state[], int nrow, int ncol) {
 double energy(int *state[], int nrow, int ncol, float T) {
     return exp(-E(state, nrow, ncol)/T);
 }
+
+int coin(double p) {
+    double res = (double) (rand()/RAND_MAX);
+
+    if (res < p) return 1;
+    else return 0;
+}
