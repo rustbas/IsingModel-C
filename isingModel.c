@@ -83,7 +83,7 @@ int E(int *state[], int nrow, int ncol) {
     return result;
 }
 
-long double energy(int *state[], int nrow, int ncol, double T) {
+long double energy(int *state[], int nrow, int ncol, long double T) {
     return expl(-E(state, nrow, ncol)/T);
 }
 

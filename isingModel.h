@@ -8,6 +8,11 @@
 #include <stdlib.h>
 #endif
 
+#ifndef TIME_H
+#define TIME_H
+#include <time.h>
+#endif
+
 void printState(int *state[], int nrow, int ncol);
 void printStateEscape(int *state[], int nrow, int ncol);
 int** createState(int nrow, int ncol);

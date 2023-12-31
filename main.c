@@ -4,13 +4,16 @@
 #define NROW 15
 #define NCOL 75
 
-#define NMODEL 10000
-#define T 1e1
+#define NMODEL 25000
+#define T 1e-5
 
 int main(int argc, char** argv){
 
+    srand(time(0));
+
     int i, j, c = 0;
-    double p = 0.0;
+    long double p = 0.0;
+    long double dE = 0.0;
 
     int** state[2];
     state[0] = createState(NROW, NCOL);
@@ -25,14 +28,15 @@ int main(int argc, char** argv){
 
     for (i=0; i<NMODEL; i++) {
         randomWalk(state[1], NROW, NCOL);
-        p = energy(state[1], NROW, NCOL, T) / energy(state[0], NROW, NCOL, T);
-        if (p > 1.0f) {
+        dE = E(state[1], NROW, NCOL) - E(state[0], NROW, NCOL);
+        if (dE > 0.0) {
             for (int i=0; i<NROW; i++) {
                 for (int j=0; j<NCOL; j++) {
                     state[0][i][j] = state[1][i][j];
                 }
             }
         } else {
+            p = energy(state[1], NROW, NCOL, T) / energy(state[0], NROW, NCOL, T);
             c = coin(p);
             if (c) {
                 for (int i=0; i<NROW; i++) {
