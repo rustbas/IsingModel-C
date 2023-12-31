@@ -13,6 +13,11 @@
 #include <stdlib.h>
 #endif
 
+#ifndef UNISTD_H
+#define UNISTD_H
+#include <unistd.h>
+#endif
+
 void printState(int *state[], int nrow, int ncol) {
     char pos = '#', neg = '@';
     for (int i=0; i<nrow; i++) {
@@ -25,6 +30,24 @@ void printState(int *state[], int nrow, int ncol) {
     }
 }
 
+void printStateEscape(int *state[], int nrow, int ncol) {
+    char pos = '#', neg = '@';
+    for (int i=0; i<nrow; i++) {
+        for (int j=0; j<ncol; j++) {
+            if (state[i][j] == 1) printf("%c", pos);
+            else printf("%c", neg);
+        }
+
+        printf("\n");
+    }
+
+    printf("\033[%dA", nrow);
+    printf("\033[%dD", ncol);
+
+    usleep(10*1000);
+
+}
+
 int** createState(int nrow, int ncol) {
     int i;
     int** state;
@@ -34,4 +57,10 @@ int** createState(int nrow, int ncol) {
     }
 
     return state;
+}
+
+void randomWalk(int *state[], int nrow, int ncol) {
+    int i = rand()%nrow;
+    int j = rand()%ncol;
+    state[i][j] = -state[i][j];
 }

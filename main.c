@@ -1,8 +1,10 @@
 
 #include "isingModel.h"
 
-#define NROW 15
+#define NROW 5
 #define NCOL 35
+
+#define NMODEL 1000
 
 int main(int argc, char** argv){
 
@@ -19,7 +21,14 @@ int main(int argc, char** argv){
         }
     }
 
-    printState(state[0], NROW, NCOL);
+    /*printState(state[0], NROW, NCOL);*/
+
+    for (i=0; i<NMODEL; i++) {
+        randomWalk(state[0], NROW, NCOL);
+        printStateEscape(state[0], NROW, NCOL);
+    }
+
+    printf("\n");
 
     return 0;
 }

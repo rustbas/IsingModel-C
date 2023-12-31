@@ -9,4 +9,6 @@
 #endif
 
 void printState(int *state[], int nrow, int ncol);
+void printStateEscape(int *state[], int nrow, int ncol);
 int** createState(int nrow, int ncol);
+void randomWalk(int *state[], int nrow, int ncol);
