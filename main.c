@@ -4,7 +4,7 @@
 #define NCOL 75
 
 #define NMODEL 25000
-#define T 1e6
+#define T 1e-6
 
 int main(int argc, char** argv){
 
