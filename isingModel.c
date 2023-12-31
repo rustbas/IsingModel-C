@@ -82,3 +82,7 @@ int E(int *state[], int nrow, int ncol) {
 
     return result;
 }
+
+double energy(int *state[], int nrow, int ncol, float T) {
+    return exp(-E(state, nrow, ncol)/T);
+}
