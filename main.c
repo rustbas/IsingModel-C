@@ -4,7 +4,7 @@
 #define NROW 5
 #define NCOL 35
 
-#define NMODEL 1000
+#define NMODEL 100
 
 int main(int argc, char** argv){
 
@@ -21,14 +21,11 @@ int main(int argc, char** argv){
         }
     }
 
-    /*printState(state[0], NROW, NCOL);*/
-
     for (i=0; i<NMODEL; i++) {
         randomWalk(state[0], NROW, NCOL);
-        printStateEscape(state[0], NROW, NCOL);
+        /*printStateEscape(state[0], NROW, NCOL);*/
+        printf("%d\n", E(state[0], NROW, NCOL));
     }
-
-    printf("\n");
 
     return 0;
 }

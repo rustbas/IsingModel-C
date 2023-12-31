@@ -64,3 +64,21 @@ void randomWalk(int *state[], int nrow, int ncol) {
     int j = rand()%ncol;
     state[i][j] = -state[i][j];
 }
+
+int E(int *state[], int nrow, int ncol) {
+    int result = 0;
+
+    for (int i=1; i<nrow; i++) {
+        for (int j=0; j<ncol; j++) {
+            result += state[i][j] * state[i-1][j];
+        }
+    }
+
+    for (int i=0; i<nrow; i++) {
+        for (int j=1; j<ncol; j++) {
+            result += state[i][j] * state[i][j-1];
+        }
+    }
+
+    return result;
+}
