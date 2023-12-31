@@ -1,14 +1,16 @@
 
 #include "isingModel.h"
 
-#define NROW 30
-#define NCOL 30
+#define NROW 15
+#define NCOL 75
 
-#define NMODEL 100
+#define NMODEL 10000
+#define T 1e1
 
 int main(int argc, char** argv){
 
-    int i, j;
+    int i, j, c = 0;
+    double p = 0.0;
 
     int** state[2];
     state[0] = createState(NROW, NCOL);
@@ -22,9 +24,32 @@ int main(int argc, char** argv){
     }
 
     for (i=0; i<NMODEL; i++) {
-        randomWalk(state[0], NROW, NCOL);
-        /*printStateEscape(state[0], NROW, NCOL);*/
-        printf("%f\n", energy(state[0], NROW, NCOL, 0.8));
+        randomWalk(state[1], NROW, NCOL);
+        p = energy(state[1], NROW, NCOL, T) / energy(state[0], NROW, NCOL, T);
+        if (p > 1.0f) {
+            for (int i=0; i<NROW; i++) {
+                for (int j=0; j<NCOL; j++) {
+                    state[0][i][j] = state[1][i][j];
+                }
+            }
+        } else {
+            c = coin(p);
+            if (c) {
+                for (int i=0; i<NROW; i++) {
+                    for (int j=0; j<NCOL; j++) {
+                        state[0][i][j] = state[1][i][j];
+                    }
+                }
+            } else {
+                for (int i=0; i<NROW; i++) {
+                    for (int j=0; j<NCOL; j++) {
+                        state[1][i][j] = state[0][i][j];
+                    }
+                }
+            }
+        }
+        /*printf("%d %f\n", c, p);*/
+        printStateEscape(state[0], NROW, NCOL);
     }
 
     return 0;

@@ -31,7 +31,7 @@ void printState(int *state[], int nrow, int ncol) {
 }
 
 void printStateEscape(int *state[], int nrow, int ncol) {
-    char pos = '#', neg = '@';
+    char pos = '#', neg = '.';
     for (int i=0; i<nrow; i++) {
         for (int j=0; j<ncol; j++) {
             if (state[i][j] == 1) printf("%c", pos);
@@ -44,7 +44,7 @@ void printStateEscape(int *state[], int nrow, int ncol) {
     printf("\033[%dA", nrow);
     printf("\033[%dD", ncol);
 
-    usleep(10*1000);
+    /*usleep(10*1000);*/
 
 }
 
@@ -83,12 +83,12 @@ int E(int *state[], int nrow, int ncol) {
     return result;
 }
 
-double energy(int *state[], int nrow, int ncol, float T) {
-    return exp(-E(state, nrow, ncol)/T);
+long double energy(int *state[], int nrow, int ncol, double T) {
+    return expl(-E(state, nrow, ncol)/T);
 }
 
-int coin(double p) {
-    double res = (double) (rand()/RAND_MAX);
+int coin(long double p) {
+    long double res = ((long double) rand())/RAND_MAX;
 
     if (res < p) return 1;
     else return 0;

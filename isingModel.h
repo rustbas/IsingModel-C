@@ -13,5 +13,5 @@ void printStateEscape(int *state[], int nrow, int ncol);
 int** createState(int nrow, int ncol);
 void randomWalk(int *state[], int nrow, int ncol);
 int E(int *state[], int nrow, int ncol);
-double energy(int *state[], int nrow, int ncol, float T);
-int coin(double p);
+long double energy(int *state[], int nrow, int ncol, long double T);
+int coin(long double p);
