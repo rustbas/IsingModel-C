@@ -9,15 +9,8 @@ int main(int argc, char** argv){
     int i, j;
 
     int** state[2];
-    state[0] = (int**) malloc(NROW * sizeof(int*));
-    for (i=0; i<NROW; ++i) {
-        state[0][i] = (int*) malloc(NCOL * sizeof(int));
-    }
-
-    state[1] = (int**) malloc(NROW * sizeof(int*));
-    for (i=0; i<NROW; ++i) {
-        state[1][i] = (int*) calloc(NCOL, sizeof(int));
-    }
+    state[0] = createState(NROW, NCOL);
+    state[1] = createState(NROW, NCOL);
 
     for (i=0; i<NROW; ++i) {
         for (j=0; j<NCOL; ++j) {

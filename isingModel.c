@@ -8,6 +8,11 @@
 #include <math.h>
 #endif
 
+#ifndef STDLIB_H
+#define STDLIB_H
+#include <stdlib.h>
+#endif
+
 void printState(int *state[], int nrow, int ncol) {
     char pos = '#', neg = '@';
     for (int i=0; i<nrow; i++) {
@@ -18,4 +23,15 @@ void printState(int *state[], int nrow, int ncol) {
 
         printf("\n");
     }
+}
+
+int** createState(int nrow, int ncol) {
+    int i;
+    int** state;
+    state = (int**) malloc(nrow * sizeof(int*));
+    for (i=0; i<nrow; ++i) {
+        state[i] = (int*) malloc(ncol * sizeof(int));
+    }
+
+    return state;
 }

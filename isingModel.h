@@ -9,3 +9,4 @@
 #endif
 
 void printState(int *state[], int nrow, int ncol);
+int** createState(int nrow, int ncol);
