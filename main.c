@@ -19,8 +19,6 @@ int main(int argc, char** argv){
         }
     }
 
-    /*printf("Hello, world!\n");*/
-
     printState(state[0], NROW, NCOL);
 
     return 0;
