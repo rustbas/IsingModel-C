@@ -1,10 +1,13 @@
 #include "isingModel.h"
 
+#define TESTING
+
+#ifndef TESTING
 #define NROW 25
 #define NCOL 75
-
 #define NMODEL 2500
 #define T 1e-6
+#endif
 
 int main(int argc, char** argv){
 
@@ -13,6 +16,20 @@ int main(int argc, char** argv){
     int i, j, c = 0;
     long double p = 0.0;
     long double dE = 0.0;
+
+#ifdef TESTING
+    long double T = 0.0;
+    int NROW, NCOL;
+    long int NMODEL;
+    printf("Insert number of row: ");
+    scanf("%d", &NROW);
+    printf("Insert number of columns: ");
+    scanf("%d", &NCOL);
+    printf("Insert temperature: ");
+    scanf("%Lf", &T);
+    printf("Insert number of iterations: ");
+    scanf("%ld", &NMODEL);
+#endif
 
     int** state[2];
     state[0] = createState(NROW, NCOL);
