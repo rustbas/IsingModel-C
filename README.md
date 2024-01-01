@@ -13,5 +13,5 @@
 
 ## TODO
 
-1. [ ] Clear screen after execution;
+1. [x] Clear screen after execution;
 2. [ ] Use `argv` to scan variables;

@@ -1,9 +1,9 @@
 #include "isingModel.h"
 
-#define NROW 15
+#define NROW 25
 #define NCOL 75
 
-#define NMODEL 25000
+#define NMODEL 2500
 #define T 1e-6
 
 int main(int argc, char** argv){
@@ -59,6 +59,8 @@ int main(int argc, char** argv){
         free(state[0][i]);
         free(state[1][i]);
     }
+
+    printf("\033[2J\n");
 
     return 0;
 }
