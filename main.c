@@ -1,11 +1,9 @@
 #include "isingModel.h"
 
-#define TESTING
-
-#ifndef TESTING
-#define NROW 25
-#define NCOL 75
-#define NMODEL 2500
+#ifdef TESTING
+#define NROW 15
+#define NCOL 50
+#define NMODEL 5000
 #define T 1e-6
 #endif
 
@@ -17,7 +15,7 @@ int main(int argc, char** argv){
     long double p = 0.0;
     long double dE = 0.0;
 
-#ifdef TESTING
+#ifndef TESTING
     long double T = 0.0;
     int NROW, NCOL;
     long int NMODEL;
