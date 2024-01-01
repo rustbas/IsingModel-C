@@ -1,6 +1,6 @@
 all: isingModel
-	clang -o result.out -O3 main.c ./*.so
+	clang -o result.out -g3 main.c ./*.so
 isingModel:
-	gcc -O3 -o isingModel.so isingModel.c --shared -lm -fopenmp
+	gcc -g3 -o isingModel.so isingModel.c --shared -lm -fopenmp
 clean:
 	rm *.so
