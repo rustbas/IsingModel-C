@@ -18,6 +18,11 @@
 #include <unistd.h>
 #endif
 
+#ifndef OMP_H
+#define OMP_H
+#include <omp.h>
+#endif
+
 void printState(int *state[], int nrow, int ncol) {
     char pos = '#', neg = '@';
     for (int i=0; i<nrow; i++) {
@@ -68,6 +73,7 @@ void randomWalk(int *state[], int nrow, int ncol) {
 int E(int *state[], int nrow, int ncol) {
     int result = 0;
 
+#pragma omp parallel for reduction(+:result)
     for (int i=1; i<nrow; i++) {
         for (int j=0; j<ncol; j++) {
             result += state[i][j] * state[i-1][j];
