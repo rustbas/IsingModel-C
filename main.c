@@ -55,5 +55,10 @@ int main(int argc, char** argv){
         printStateEscape(state[0], NROW, NCOL);
     }
 
+    for (i=0; i<NROW; i++) {
+        free(state[0][i]);
+        free(state[1][i]);
+    }
+
     return 0;
 }
