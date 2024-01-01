@@ -4,7 +4,16 @@
 
 **Aim:** Develop simple Ising Model using C.
 
-## Description
+## Ising model
+
+### About
+
+The Ising model, named after the physicists Ernst Ising and Wilhelm Lenz, 
+is a mathematical model of ferromagnetism in statistical mechanics.
+
+### Description
+
+$A$ -- lattice.
 
 ## Usage
 
