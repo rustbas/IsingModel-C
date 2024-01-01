@@ -11,9 +11,7 @@
 The Ising model, named after the physicists Ernst Ising and Wilhelm Lenz, 
 is a mathematical model of ferromagnetism in statistical mechanics.
 
-### Description
-
-$A$ -- lattice.
+[Description](https://en.wikipedia.org/wiki/Ising_model#Two_dimensions)
 
 ## Usage
 
