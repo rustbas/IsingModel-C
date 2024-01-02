@@ -39,4 +39,3 @@ Example:
 
 1. [x] Clear screen after execution;
 2. [x] Use `argv` to scan variables;
-3. [x] Make real number of iterations;
