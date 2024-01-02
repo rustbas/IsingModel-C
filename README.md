@@ -34,4 +34,4 @@ If you want run program with you parameters, execute `make` and run the program 
 
 1. [x] Clear screen after execution;
 2. [x] Use `argv` to scan variables;
-3. [ ] Make real number of iterations;
+3. [x] Make real number of iterations;

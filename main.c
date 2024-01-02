@@ -8,7 +8,6 @@
 #endif
 
 int main(int argc, char** argv){
-
     srand(time(0));
 
     int i, j, c = 0;
@@ -51,7 +50,7 @@ int main(int argc, char** argv){
         }
     }
 
-    for (i=0; i<NMODEL; i++) {
+    for (i=0; i<NMODEL;) {
         randomWalk(state[1], NROW, NCOL);
         dE = E(state[1], NROW, NCOL) - E(state[0], NROW, NCOL);
         if (dE > 0.0) {
@@ -60,6 +59,7 @@ int main(int argc, char** argv){
                     state[0][i][j] = state[1][i][j];
                 }
             }
+            ++i;
         } else {
             p = energy(state[1], NROW, NCOL, T) / energy(state[0], NROW, NCOL, T);
             c = coin(p);
@@ -69,6 +69,7 @@ int main(int argc, char** argv){
                         state[0][i][j] = state[1][i][j];
                     }
                 }
+                ++i;
             } else {
                 for (int i=0; i<NROW; i++) {
                     for (int j=0; j<NCOL; j++) {
