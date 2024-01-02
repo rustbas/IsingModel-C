@@ -19,14 +19,25 @@ int main(int argc, char** argv){
     long double T = 0.0;
     int NROW, NCOL;
     long int NMODEL;
-    printf("Insert number of row: ");
-    scanf("%d", &NROW);
-    printf("Insert number of columns: ");
-    scanf("%d", &NCOL);
-    printf("Insert temperature: ");
-    scanf("%Lf", &T);
-    printf("Insert number of iterations: ");
-    scanf("%ld", &NMODEL);
+    /*printf("Insert number of row: ");*/
+    /*scanf("%d", &NROW);*/
+    /*printf("Insert number of columns: ");*/
+    /*scanf("%d", &NCOL);*/
+    /*printf("Insert temperature: ");*/
+    /*scanf("%Lf", &T);*/
+    /*printf("Insert number of iterations: ");*/
+    /*scanf("%ld", &NMODEL);*/
+
+    for (i=0; i<argc; ++i) {
+        if (!strcmp(argv[i], "-T") || !strcmp(argv[i], "--temperature")) 
+            T = (long double) atof(argv[++i]);
+        else if (!strcmp(argv[i], "-nr") || !strcmp(argv[i], "--row-number"))
+            NROW = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "-nc") || !strcmp(argv[i], "--column-number"))
+            NCOL = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "-nm") || !strcmp(argv[i], "--iterations"))
+            NMODEL = atol(argv[++i]);
+    }
 #endif
 
     int** state[2];
