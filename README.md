@@ -30,6 +30,11 @@ If you want run program with you parameters, execute `make` and run the program 
 --iterations     | -nm              Number of iterations
 ```
 
+Example:
+```sh
+./result.out --temperature 1e-6 --row-number 15 --column-number 45 --iterations 1000
+```
+
 ## TODO
 
 1. [x] Clear screen after execution;
