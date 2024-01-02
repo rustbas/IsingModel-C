@@ -13,6 +13,11 @@
 #include <time.h>
 #endif
 
+#ifndef STRING_H
+#define STRING_H
+#include <string.h>
+#endif
+
 void printState(int *state[], int nrow, int ncol);
 void printStateEscape(int *state[], int nrow, int ncol);
 int** createState(int nrow, int ncol);
