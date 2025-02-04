@@ -53,3 +53,4 @@ dkms.conf
 
 # tape for gifs
 *.tape
+raylib
