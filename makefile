@@ -1,6 +1,6 @@
 CC=gcc
-HEADERS=raylib/include
-LIBS=raylib/lib
+HEADERS=raylib/build/raylib/include
+LIBS=raylib/build/raylib
 
 all: result.out
 
