@@ -1,8 +1,7 @@
-all: isingModel
-	clang -o result.out -O3 main.c ./*.so
-test: isingModel
-	clang -o result.out -g3 main.c ./*.so -DTESTING
-isingModel:
-	gcc -O3 -o isingModel.so isingModel.c --shared -lm -fopenmp
+all: result.out
+
+result.out: main.c
+	gcc main.c -o result.out
+
 clean:
-	rm *.so
+	rm -f result.out
