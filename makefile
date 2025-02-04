@@ -9,7 +9,7 @@ result.out: main.c
 		-I $(HEADERS) \
 		-L $(LIBS) \
 		main.c -o result.out \
-		-lraylib
+		-lraylib -lm
 
 clean:
 	rm -f result.out
